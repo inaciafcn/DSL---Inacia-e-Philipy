@@ -1,0 +1,41 @@
+Arquivos necessários para execução do programa:
+
+- JAVA
+
+- Biblioteca Pillow
+	Instalação Windows e Linux: 
+		python3 -m pip install --upgrade pip
+		python3 -m pip install --upgrade Pillow	
+
+- Arquivo de Fonte .ttf
+	Disponível no GitHub
+
+Descrição do código
+
+- Gramática Colors.g4
+	A gramática Colors trás a representação de variáveis e expressões, as quais possibilitam mostrar ou combinar cores pré estabelicidas, através dos comandos 'mostrar' ou 'combinar'. 
+
+Exemplos de códigos de execução:
+
+a = azul
+mostrar a
+
+a = vermelho
+b = amarelo
+combinar a + b
+
+- Arquivo CorVisitor.java
+	Foram utilizados os métodos Visitors para geração do código de saída em python.
+	Dentro do arquivos são encontrados métodos de visitação os quais pecorrem toda a árvore da gramática Colors.g4. A princípio o primeiro método a ser chamado é o visitProg() o qual irá salvar, através de um buffer, toda pré programação python necessária para o código de saída e concatenar com os demais códigos gerados pelos outros métodos através das visitações.
+	Feito isso, o programa irá pecorrer cada nó da árvore gerado pela gramática Colors, onde ele verificará cada contexto e expressão associada, salvando em uma determinada variável e retornando seu valor e expressão já formatado para o buffer inicial.
+	Outro ponto interessante são os metódos de visitação das cores descritas na gramatática, as quais tem a função de "traduzir" do português para o inglês. 
+	Por fim, através da função main e dos seus contrutores, são criados os aquivos Lexers, Tokens e Parsers e também é impresso toda árvora visitada da gramática.
+	
+Códigos para execução do programa:
+
+antlr4 Colors.g4 -visitor
+javac Colors*.java
+grun Colors prog teste.exp
+javac CorVisitor.java
+java CorVisitor.java teste.exp > teste.py
+py teste.py
