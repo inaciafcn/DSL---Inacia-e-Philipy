@@ -1,0 +1,38 @@
+2021-02-19 18:33:48:619 grammar LogManager.java:25 before: (COMBINED_GRAMMAR Colors (RULES (RULE prog (BLOCK (ALT (+ (BLOCK (ALT entrada)))))) (RULE entrada (BLOCK (ALT VAR '=' exp) (ALT 'combinar' exp) (ALT 'mostrar' exp))) (RULE exp (BLOCK (ALT exp '+' exp) (ALT VAR) (ALT cores))) (RULE cores (BLOCK (ALT 'azul') (ALT 'amarelo') (ALT 'vermelho') (ALT 'laranja') (ALT 'verde') (ALT 'roxo') (ALT 'cinza'))) (RULE VAR (BLOCK (ALT (+ (BLOCK (ALT [a-zA-Z])))))) (RULE SPACE (BLOCK (LEXER_ALT_ACTION (ALT [ \n\t\r]) skip)))))
+2021-02-19 18:33:48:634 grammar LogManager.java:25 after: (COMBINED_GRAMMAR Colors (RULES (RULE prog (BLOCK (ALT (+ (BLOCK (ALT entrada)))))) (RULE entrada (BLOCK (ALT VAR '=' exp) (ALT 'combinar' exp) (ALT 'mostrar' exp))) (RULE exp (BLOCK (ALT exp '+' exp) (ALT VAR) (ALT cores))) (RULE cores (BLOCK (ALT 'azul') (ALT 'amarelo') (ALT 'vermelho') (ALT 'laranja') (ALT 'verde') (ALT 'roxo') (ALT 'cinza'))) (RULE VAR (BLOCK (ALT (+ (BLOCK (ALT [a-zA-Z])))))) (RULE SPACE (BLOCK (LEXER_ALT_ACTION (ALT [ \n\t\r]) skip)))))
+2021-02-19 18:33:48:656 grammar LogManager.java:25 after extract implicit lexer =(COMBINED_GRAMMAR Colors (RULES (RULE prog (BLOCK (ALT (+ (BLOCK (ALT entrada)))))) (RULE entrada (BLOCK (ALT VAR '=' exp) (ALT 'combinar' exp) (ALT 'mostrar' exp))) (RULE exp (BLOCK (ALT exp '+' exp) (ALT VAR) (ALT cores))) (RULE cores (BLOCK (ALT 'azul') (ALT 'amarelo') (ALT 'vermelho') (ALT 'laranja') (ALT 'verde') (ALT 'roxo') (ALT 'cinza')))))
+2021-02-19 18:33:48:656 grammar LogManager.java:25 lexer =(LEXER_GRAMMAR ColorsLexer (RULES (RULE T__0 (BLOCK (ALT '='))) (RULE T__1 (BLOCK (ALT 'combinar'))) (RULE T__2 (BLOCK (ALT 'mostrar'))) (RULE T__3 (BLOCK (ALT '+'))) (RULE T__4 (BLOCK (ALT 'azul'))) (RULE T__5 (BLOCK (ALT 'amarelo'))) (RULE T__6 (BLOCK (ALT 'vermelho'))) (RULE T__7 (BLOCK (ALT 'laranja'))) (RULE T__8 (BLOCK (ALT 'verde'))) (RULE T__9 (BLOCK (ALT 'roxo'))) (RULE T__10 (BLOCK (ALT 'cinza'))) (RULE VAR (BLOCK (ALT (+ (BLOCK (ALT [a-zA-Z])))))) (RULE SPACE (BLOCK (LEXER_ALT_ACTION (ALT [ \n\t\r]) skip)))))
+2021-02-19 18:33:49:060 left-recursion LogManager.java:25 exp
+    :   ( {} VAR<tokenIndex=62>          
+        | cores<tokenIndex=69>        
+        )
+        (
+          {precpred(_ctx, 3)}?<p=3> '+'<tokenIndex=53> exp<tokenIndex=55,p=4>
+        )*
+    ;
+2021-02-19 18:33:49:067 grammar LogManager.java:25 added: (RULE exp (BLOCK (ALT (BLOCK (ALT {} (VAR (ELEMENT_OPTIONS (= tokenIndex 62)))) (ALT (cores (ELEMENT_OPTIONS (= tokenIndex 69))))) (* (BLOCK (ALT ({precpred(_ctx, 3)}? (ELEMENT_OPTIONS (= p 3))) ('+' (ELEMENT_OPTIONS (= tokenIndex 53))) (exp (ELEMENT_OPTIONS (= tokenIndex 55) (= p 4)))))))))
+2021-02-19 18:33:49:068 semantics LogManager.java:25 tokens={EOF=-1, T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, T__9=10, T__10=11, VAR=12, SPACE=13}
+2021-02-19 18:33:49:068 semantics LogManager.java:25 strings={'='=1, 'combinar'=2, 'mostrar'=3, '+'=4, 'azul'=5, 'amarelo'=6, 'vermelho'=7, 'laranja'=8, 'verde'=9, 'roxo'=10, 'cinza'=11}
+2021-02-19 18:33:49:089 LL1 LogManager.java:25 
+DECISION 0 in rule prog
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 look=[{2..3, 12}, <EOF>]
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 LL(1)? true
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 
+DECISION 1 in rule entrada
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 look=[12, 2, 3]
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 LL(1)? true
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 
+DECISION 2 in rule exp
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 look=[12, {5..11}]
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 LL(1)? true
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 
+DECISION 3 in rule exp
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 look=[null, null]
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 LL(1)? false
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 
+DECISION 4 in rule cores
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 look=[5, 6, 7, 8, 9, 10, 11]
+2021-02-19 18:33:49:090 LL1 LogManager.java:25 LL(1)? true
+2021-02-19 18:33:49:121 action-translator LogManager.java:25 translate 
+2021-02-19 18:33:49:122 action-translator LogManager.java:25 translate precpred(_ctx, 3)
+2021-02-19 18:33:49:126 action-translator LogManager.java:25 translate precpred(_ctx, 3)
